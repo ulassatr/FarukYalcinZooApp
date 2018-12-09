@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/action_main"
+        android:title="Anasayfa" />
+    <item
+        android:id="@+id/action_info"
+        android:title="Bilgilendirme" />
+    <item android:title="Canlılar">
+        <menu>
+            <item
+                android:id="@+id/action_animals"
+                android:title="Hayvanlar" />
+            <item
+                android:id="@+id/action_plants"
+                android:title="Bitkiler" />
+        </menu>
+    </item>
+    <item android:title="Galeri" >
+        <menu >
+            <item
+                android:id="@+id/action_fotogal"
+                android:title="Foto Galeri" />
+            <item
+                android:id="@+id/action_videogal"
+                android:title="Video Galeri" />
+        </menu>
+    </item>
+</menu>
