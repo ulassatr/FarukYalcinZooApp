@@ -10,15 +10,12 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
 import com.info.farukyalcinzooapp.ModelDao.AnimalDaoInterface;
 import com.info.farukyalcinzooapp.Models.Animal;
-import com.info.farukyalcinzooapp.fragments.FragmentBirinci;
-import com.info.farukyalcinzooapp.fragments.FragmentIkinci;
-import com.info.farukyalcinzooapp.fragments.FragmentUcuncu;
+
 
 import java.util.List;
 
@@ -27,7 +24,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-    private AnimalDaoInterface animalDao;
+
     private NavigationView nav_view;
     private Toolbar toolbar;
     private Fragment fragment;
@@ -38,11 +35,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        animalDao = ApiUtils.getAnimalDaoInterface();
-        allAnimals();
 
-        fragment = new FragmentBirinci();
-        getSupportFragmentManager().beginTransaction().add(R.id.fragment_tutucu,fragment).commit();
+
 
         nav_view = findViewById(R.id.nav_view);
         toolbar = findViewById(R.id.toolbar);
@@ -65,17 +59,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         int id = menuItem.getItemId();
         if(id==R.id.action_fotogal){
-            allAnimals();
-            fragment = new FragmentBirinci();
+
         }
         if(id==R.id.action_plants){
-            fragment = new FragmentIkinci();
+
         }
         if(id==R.id.action_animals){
-            fragment = new FragmentUcuncu();
+            Intent intent = new Intent(MainActivity.this,AnimalActivity.class);
+            startActivity(intent);
         }
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_tutucu,fragment).commit();
 
         drawer.closeDrawer(GravityCompat.START);
 
@@ -97,18 +90,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             startActivity(i);
         }
     }
-    public void allAnimals(){
-        animalDao.allAnimal().enqueue(new Callback<List<Animal>>() {
-            @Override
-            public void onResponse(Call<List<Animal>> call, Response<List<Animal>> response) {
 
-                List<Animal> list = response.body();
-            }
 
-            @Override
-            public void onFailure(Call<List<Animal>> call, Throwable t) {
-        Log.e("asadas","asd");
-            }
-        });
-    }
+
+
 }

@@ -3,8 +3,7 @@ package com.info.farukyalcinzooapp.Models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Animal {
-
+public class Plant {
     @SerializedName("id")
     @Expose
     private Integer id;
@@ -14,20 +13,9 @@ public class Animal {
     @SerializedName("description")
     @Expose
     private String description;
-    @SerializedName("group")
-    @Expose
-    private Integer group;
     @SerializedName("imagePath")
     @Expose
     private String imagePath;
-
-    public Animal(Integer id, String name, String description, Integer group, String imagePath) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.group = group;
-        this.imagePath = imagePath;
-    }
 
     public Integer getId() {
         return id;
@@ -53,15 +41,7 @@ public class Animal {
         this.description = description;
     }
 
-    public Integer getGroup() {
-        return group;
-    }
-
-    public void setGroup(Integer group) {
-        this.group = group;
-    }
-
-    public String getImagePath() {
+    public Object getImagePath() {
         return imagePath;
     }
 
