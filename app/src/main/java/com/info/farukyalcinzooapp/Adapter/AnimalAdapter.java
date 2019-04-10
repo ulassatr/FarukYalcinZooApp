@@ -1,9 +1,9 @@
 package com.info.farukyalcinzooapp.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -13,8 +13,13 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+
+import com.info.farukyalcinzooapp.AnimalActivity;
+import com.info.farukyalcinzooapp.DetailActivity;
+import com.info.farukyalcinzooapp.MammalActivity;
 import com.info.farukyalcinzooapp.Models.Animal;
 import com.info.farukyalcinzooapp.R;
+import com.squareup.picasso.Picasso;
 
 import java.io.File;
 import java.util.List;
@@ -37,10 +42,11 @@ private List<Animal> animalList;
 
 
 
+
         public CardTasarimTutucu(View view) {
             super(view);
             animal_resim = view.findViewById(R.id.animal_resim);
-            animal_name = view.findViewById(R.id.animal_name);
+            animal_name = view.findViewById(R.id.animal_nameD);
             animal_detay = view.findViewById(R.id.button_detay);
 
         }
@@ -59,19 +65,23 @@ private List<Animal> animalList;
         Animal animal = animalList.get(i);
 
         cardTasarimTutucu.animal_name.setText(animal.getName());
-        String path = animal.getImagePath();
 
+        String path = animal.getImagePath();
         File imgFile = new File(path);
 
-            Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getPath());
-        cardTasarimTutucu.animal_resim.setImageBitmap(myBitmap);
-//            imageView.setImageBitmap(myBitmap);
+        Picasso.get().
+                load(R.drawable.inek).
+                into(cardTasarimTutucu.animal_resim);
 
 
-
-        /*File imgfile = new File(animal.getImagePath().toString());
-        Bitmap myBitmap = BitmapFactory.decodeFile(imgfile.getAbsolutePath());
-        cardTasarimTutucu.animal_name.setText(animal.getName());*/
+        cardTasarimTutucu.animal_detay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context,DetailActivity.class);
+                intent.putExtra("nesne",animal);
+                context.startActivity(intent);
+            }
+        });
 
 
 
@@ -82,4 +92,6 @@ private List<Animal> animalList;
     public int getItemCount() {
         return animalList.size();
     }
+
+
 }

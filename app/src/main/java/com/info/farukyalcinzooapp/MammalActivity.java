@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
+import android.view.View;
 
 import com.info.farukyalcinzooapp.Adapter.AnimalAdapter;
 import com.info.farukyalcinzooapp.ModelDao.AnimalDaoInterface;
@@ -25,7 +26,6 @@ import retrofit2.Response;
 public class MammalActivity extends AppCompatActivity {
     private AnimalDaoInterface animalDao;
     private List<Animal> res ;
-    private List<Animal> cevap;
 
 
     private RecyclerView rv;
@@ -41,15 +41,10 @@ public class MammalActivity extends AppCompatActivity {
         //2 tane gözüksün yanyana
         rv.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
 
-       Animal a1 = new Animal(0,"ulas","asdsad",1,"asdf");
-       Animal a2 = new Animal(0,"ulas","asdsad",1,"asdf");
-       cevap = new ArrayList<>();
-       cevap.add(a1);
-       cevap.add(a2);
-
 
         animalDao = ApiUtils.getAnimalDaoInterface();
         GetAllAnimal();
+
     }
 
   public void GetAllAnimal(){
@@ -68,8 +63,8 @@ public class MammalActivity extends AppCompatActivity {
 
             }
         });
-
   }
+
 
 
 }

@@ -3,7 +3,9 @@ package com.info.farukyalcinzooapp.Models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Plant {
+import java.io.Serializable;
+
+public class Plant implements Serializable {
     @SerializedName("id")
     @Expose
     private Integer id;

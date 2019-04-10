@@ -23,7 +23,7 @@
                 app:srcCompat="@drawable/inek" />
 
             <TextView
-                android:id="@+id/animal_name"
+                android:id="@+id/animal_nameD"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
@@ -34,7 +34,7 @@
                 android:id="@+id/button_detay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/animal_name"
+                android:layout_below="@id/animal_nameD"
                 android:layout_centerHorizontal="true"
                 android:text="Detay" />
         </RelativeLayout>

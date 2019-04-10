@@ -3,7 +3,9 @@ package com.info.farukyalcinzooapp.Models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Animal {
+import java.io.Serializable;
+
+public class Animal implements Serializable {
 
     @SerializedName("id")
     @Expose
