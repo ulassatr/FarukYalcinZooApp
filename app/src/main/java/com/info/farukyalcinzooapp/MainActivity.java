@@ -60,6 +60,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         if(id==R.id.action_plants){
 
+            Intent intent = new Intent(MainActivity.this,QRActivity.class);
+            startActivity(intent);
         }
         if(id==R.id.action_animals){
             Intent intent = new Intent(MainActivity.this,AnimalActivity.class);
