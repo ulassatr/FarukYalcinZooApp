@@ -28,6 +28,7 @@ public class MammalActivity extends AppCompatActivity {
     private List<Animal> res ;
 
 
+
     private RecyclerView rv;
     private AnimalAdapter adapter;
     @Override
@@ -44,6 +45,7 @@ public class MammalActivity extends AppCompatActivity {
 
         animalDao = ApiUtils.getAnimalDaoInterface();
         GetAllAnimal();
+
 
     }
 
@@ -64,6 +66,7 @@ public class MammalActivity extends AppCompatActivity {
             }
         });
   }
+
 
 
 

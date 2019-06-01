@@ -27,6 +27,7 @@ import java.util.List;
 public class AnimalAdapter extends RecyclerView.Adapter<AnimalAdapter.CardTasarimTutucu>{
 private Context context;
 private List<Animal> animalList;
+private Animal animal;
 
     public AnimalAdapter(Context context, List<Animal> animalList) {
         this.context = context;

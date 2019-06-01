@@ -21,6 +21,12 @@ import android.widget.Toast;
 
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
+import com.info.farukyalcinzooapp.ModelDao.AnimalDaoInterface;
+import com.info.farukyalcinzooapp.Models.Animal;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class QRActivity extends AppCompatActivity {
 
@@ -32,6 +38,9 @@ public class QRActivity extends AppCompatActivity {
         setContentView(R.layout.activity_qr);
         scan_btn = (Button) findViewById(R.id.scan_btn);
         final Activity activity = this;
+
+
+        
         scan_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -44,6 +53,7 @@ public class QRActivity extends AppCompatActivity {
                 integrator.initiateScan();
             }
         });
+     //   GetAnimalById(2);
     }
 
     @Override
@@ -52,13 +62,21 @@ public class QRActivity extends AppCompatActivity {
         if(result != null){
             if(result.getContents()==null){
                 Toast.makeText(this, "You cancelled the scanning", Toast.LENGTH_LONG).show();
+
             }
             else {
-                Toast.makeText(this, result.getContents(),Toast.LENGTH_LONG).show();
+              // Toast.makeText(this, result.getContents(),Toast.LENGTH_LONG).show();
+
+                Intent i = new Intent(getApplicationContext(), DetailSingleActivity.class);
+                i.putExtra("detailId",result.getContents().toString());
+                startActivity(i);
+              //  int a = Integer.parseInt(result.getContents());
+              //  GetAnimalById(2);
             }
         }
         else {
             super.onActivityResult(requestCode, resultCode, data);
         }
     }
+
 }
